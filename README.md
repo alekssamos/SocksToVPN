@@ -26,7 +26,43 @@ A .NET Core console application that automatically configures tun2socks with pro
   - Configures OS-specific routing and network settings
 
 ## Usage
+### From Release
 
+1. Download SocksToVPN
+
+First, you need to download the SocksToVPN application from GitHub. Select the version that matches your operating system and CPU architecture from the following link:
+
+[SocksToVPN GitHub Releases](https://github.com/localtonet/SocksToVPN/releases/tag/latest)
+
+Download and extract the appropriate file for your system.
+2. Run the Application
+
+After downloading, launch SocksToVPN. Use the following command in the terminal or command prompt:
+
+`./SocksToVPN`
+
+For Windows users, simply run the SocksToVPN.exe file.
+3. Enter Your Proxy Information
+
+SocksToVPN will prompt you to enter your SOCKS5 proxy credentials in the following format:
+
+`ip:port:user:pass`
+
+Example:
+
+`192.168.1.100:1080:myuser:mypassword`
+
+Once you enter this information, SocksToVPN will automatically establish the connection.
+4. Establishing the Connection
+
+SocksToVPN will automatically download and configure additional components like tun2socks and Wintun as needed, depending on your system requirements. It will then route your internet traffic through the SOCKS5 proxy.
+5. Test Your Connection
+
+To verify that your connection is working, use the following command:
+
+`curl ifconfig.me`
+
+This command will display your external IP address. If you are successfully connected through the SOCKS5 proxy, your IP address should match that of the proxy server.
 ### Basic Execution
 
 ```bash
