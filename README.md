@@ -1,4 +1,4 @@
-# ProxySocksSetup
+# SocksToVPN 
 
 A .NET Core console application that automatically configures tun2socks with proxy settings for transparent proxying across different operating systems.
 
