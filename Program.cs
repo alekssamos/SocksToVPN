@@ -22,7 +22,7 @@ class Program
         // Check if settings were successfully retrieved from environment variables
         if (proxySettings == null)
         {
-            // Console.WriteLine("Failed to get proxy settings from environment variables. Falling back to user input...");
+            Console.WriteLine("Failed to get proxy settings from environment variables. Falling back to user input...");
             proxySettings = ProxySettings.GetFromUserInput();
         }
         

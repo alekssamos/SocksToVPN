@@ -416,16 +416,16 @@ namespace SocksToVpn
             
             if (osType == OsInfo.OsType.Windows)
             {
-#if WINDOWS
+// #if WINDOWS
                 // Check for admin rights in Windows
                 using var identity = System.Security.Principal.WindowsIdentity.GetCurrent();
                 var principal = new System.Security.Principal.WindowsPrincipal(identity);
                 return principal.IsInRole(System.Security.Principal.WindowsBuiltInRole.Administrator);
-#else
+// #else
                 // Not running on Windows, can't check Windows admin rights
-                Console.WriteLine("Unable to check for administrator rights on non-Windows platform.");
-                return false;
-#endif
+                // Console.WriteLine("Unable to check for administrator rights on non-Windows platform.");
+                // return false;
+// #endif
             }
             else
             {
