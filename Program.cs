@@ -16,8 +16,15 @@ class Program
         Console.WriteLine($"Detected Architecture: {OsInfo.GetCpuArchitectureDescription()}");
         Console.WriteLine();
         
-        // Step 1: Get proxy settings from user
-        ProxySettings proxySettings = ProxySettings.GetFromUserInput();
+        // Step 1: Get proxy settings from environment variables or from user
+        ProxySettings? proxySettings = ProxySettings.GetFromEnvironmentVariables();
+        
+        // Check if settings were successfully retrieved from environment variables
+        if (proxySettings == null)
+        {
+            // Console.WriteLine("Failed to get proxy settings from environment variables. Falling back to user input...");
+            proxySettings = ProxySettings.GetFromUserInput();
+        }
         
         try
         {

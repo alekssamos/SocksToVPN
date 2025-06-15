@@ -1,0 +1,33 @@
+name: ci
+
+on:
+  push:
+    tags: ["v*"]
+    branches: [ main ]
+
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ci:
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up dotnet
+      if: ${{ contains(matrix.os, 'ubuntu') }}
+      uses: actions/setup-dotnet@v4
+
+    - name: building executables
+      run: chmod +x ./build.sh && ./build.sh
+
+    - name: Display structure of builded files
+      run: ls -R ./publish/
+
+    - name: Release
+      if: ${{ startsWith(github.ref, 'refs/tags/v') && !contains(github.ref, '-') }}
+      uses: softprops/action-gh-release@v1
+      with:
+        files: publish/*
+        fail_on_unmatched_files: true
+        append_body: true

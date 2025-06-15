@@ -1,3 +1,4 @@
+using System;
 namespace SocksToVpn
 {
     public class ProxySettings
@@ -79,6 +80,28 @@ namespace SocksToVpn
             }
             
             return new ProxySettings(interactiveIpAddress, interactivePort, interactiveUsername, interactivePassword);
+        }
+
+        public static ProxySettings GetFromEnvironmentVariables()
+        {
+            string ipAddress = Environment.GetEnvironmentVariable("PROXY_IP") ?? string.Empty;
+            string portString = Environment.GetEnvironmentVariable("PROXY_PORT") ?? "1080"; // Default port
+            string? username = Environment.GetEnvironmentVariable("PROXY_USERNAME");
+            string? password = Environment.GetEnvironmentVariable("PROXY_PASSWORD");
+
+            if (!int.TryParse(portString, out int port))
+            {
+                port = 1080; // Default SOCKS port
+                Console.WriteLine($"Invalid port number in environment variables. Using default: {port}");
+            }
+
+            if (string.IsNullOrWhiteSpace(ipAddress))
+            {
+                Console.WriteLine("IP Address is required. Please set the PROXY_IP environment variable.");
+                return null; // or throw an exception based on how you want to handle this
+            }
+
+            return new ProxySettings(ipAddress, port, username, password);
         }
     }
 }

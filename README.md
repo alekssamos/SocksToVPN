@@ -42,7 +42,7 @@ After downloading, launch SocksToVPN. Use the following command in the terminal 
 `./SocksToVPN`
 
 For Windows users, simply run the SocksToVPN.exe file.
-3. Enter Your Proxy Information
+3. Enter Your Proxy Information or set it from environment variables
 
 SocksToVPN will prompt you to enter your SOCKS5 proxy credentials in the following format:
 
@@ -51,6 +51,10 @@ SocksToVPN will prompt you to enter your SOCKS5 proxy credentials in the followi
 Example:
 
 `192.168.1.100:1080:myuser:mypassword`
+
+Or set environment variables
+(`PROXY_IP`, `PROXY_PORT`, `PROXY_USERNAME`, `PROXY_PASSWORD`)  to run automatically
+before running.
 
 Once you enter this information, SocksToVPN will automatically establish the connection.
 4. Establishing the Connection
