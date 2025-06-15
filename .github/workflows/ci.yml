@@ -1,5 +1,7 @@
 name: ci
 
+runs-on: ubuntu-latest
+
 on:
   push:
     tags: ["v*"]
