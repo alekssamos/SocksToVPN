@@ -32,7 +32,7 @@ A .NET Core console application that automatically configures tun2socks with pro
 
 First, you need to download the SocksToVPN application from GitHub. Select the version that matches your operating system and CPU architecture from the following link:
 
-[SocksToVPN GitHub Releases](https://github.com/localtonet/SocksToVPN/releases/tag/latest)
+[SocksToVPN GitHub Releases](https://github.com/alekssamos/socksToVPN/releases/v1.5)
 
 Download and extract the appropriate file for your system.
 2. Run the Application
